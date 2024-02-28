@@ -14,6 +14,19 @@ const displayPhones= phones =>{
 
                 phoneContainer.textContent='';
 
+                // display show button 
+                // const showAllContainer = document.getElementById('show-all-container')
+                // if(phones.length > 8){
+                //   showAllContainer.classList.remove('hidden');
+                // }
+                // else {
+                //   showAllContainer.classList.add('hidden');
+                // }
+
+                // // display only first 12 phones
+
+                // phones =phones.slice(0,8);
+
 
 
 
@@ -33,7 +46,8 @@ const displayPhones= phones =>{
                   </div>
                 </div>`;
                 phoneContainer.appendChild(phoneCard);
-                })
+                });
+                toggleLoadingSpinner(false);
 }
 
 
@@ -48,10 +62,25 @@ const handleSearch =() => {
 
 
 
+const handleSearch2=() =>{
+  toggleLoadingSpinner(true);
+  const searchField2 =document.getElementById('search-field2');
+  const searchText =searchField2.value ;
+  loadPhone(searchText);
+}
 
 
+const toggleLoadingSpinner=(isLoading) =>{
+    const loadingSpinner =document.getElementById('loading-spinner');
+    if(isLoading){
+      loadingSpinner.classList.remove('hidden');
+    }
+    else{
+      loadingSpinner.classList.add('hidden')
+    }
 
 
+}
 
 
 
